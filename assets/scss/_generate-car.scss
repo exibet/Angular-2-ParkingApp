@@ -1,0 +1,107 @@
+generate-car {
+  display: block;
+  //@extend .clearfix;
+  float: left;
+  width: 442px;
+}
+.generate-car {
+  @include box-sizing;
+  position: relative;
+  display: inline-block;
+  border: 2px solid #fff;
+  width: 100%;
+  //background-color: #AEADB7;
+  form {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  input,
+  select {
+    @include box-sizing;
+    width: 100%;
+    font-size: 16px;
+  }
+  button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    border: none;
+    background-color: orange;
+    color: #fff;
+    font-weight: 700;
+    padding: 8px 0;
+    &:hover {
+      cursor: pointer;
+      background-color: lightsalmon;
+    }
+    &[disabled] {
+      background-color: gray;
+      &:hover {
+        background-color: gray;
+        cursor: auto;
+        color: #fff;
+      }
+    }
+  }
+  fieldset {
+    position: relative;
+  }
+  .car-error {
+    position: absolute;
+    display: block;
+    font-size: 10px;
+    color: #ff443a;
+    left: 5px;
+    bottom: -14px;
+  }
+}
+car-preview {
+  position: absolute;
+  top: 50%;
+  right: 16%;
+  @include transform(translateY(-50%));
+  &.Sedan {
+    @include sprite-sprite(Sedan-small);
+  }
+  &.Disabled {
+    @include sprite-sprite(Disabled-small);
+  }
+  &.Truck {
+    @include sprite-sprite(Truck-small);
+  }
+}
+
+car {
+  position: absolute;
+  display: block;
+  top: 80px;
+  left: 50%;
+  @include transform(translateX(-50%));
+  z-index: 1;
+  &.Sedan {
+    @include sprite-sprite(Sedan);
+  }
+  &.Disabled {
+    @include sprite-sprite(Disabled);
+  }
+  &.Truck {
+    @include sprite-sprite(Truck);
+  }
+  .car-number {
+    position: absolute;
+    left: 50%;
+    @include transform(translateX(-50%));
+    font-size: 10px;
+    bottom: -14px;
+    background-color: #fff;
+    color: #222;
+    font-weight: 700;
+    padding: 1px 5px;
+    display: inline-block;
+    width: 55px;
+  }
+}
